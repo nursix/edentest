@@ -1,7 +1,7 @@
-edentest
+EdenTest
 ========
 
-Sahana Eden Test Cases for the Robot Framework
+Test Cases for Sahana Eden
 
 Instructions
 ------------
@@ -22,8 +22,7 @@ Instructions
   * edit config.py and adapt the settings to your environment
 
 4. Configure and start Sahana Eden
-  * run clean script
-  * populate the database
+  * run clean script (populate the database)
   * start web2py
 
 5. Run tests
