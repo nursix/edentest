@@ -1,0 +1,13 @@
+*** Settings ***
+Documentation   Example suite
+Resource        ../resource.txt
+Suite Setup     Start Testing
+Suite TearDown  End Testing
+
+*** Keywords ***
+Start Testing
+    Login To Eden
+
+End Testing
+    Logout From Eden
+    Close Browser

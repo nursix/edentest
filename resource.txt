@@ -7,6 +7,7 @@ Variables         config.py
 ${DELAY}            0
 ${BASEURL}          ${SERVER}/${APPNAME}
 ${LOGIN URL}        http://${BASEURL}/default/user/login
+${LOGOUT URL}       http://${BASEURL}/default/user/logout
 ${WELCOME URL}      http://${BASEURL}/default/index
 
 *** Keywords ***
@@ -43,3 +44,6 @@ Login To Eden
     Input Password    ${VALID PASSWORD}
     Submit Credentials
     Welcome Page Should Be Open
+
+Logout From Eden
+    Go To   ${LOGOUT URL}
