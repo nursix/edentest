@@ -1,0 +1,13 @@
+*** Settings ***
+Documentation       Global keywords for Eden tests
+
+*** Variables ***
+${CONFIRMATION}     xpath=//div[contains(@class, 'alert-success')]
+${ERROR}            xpath=//div[contains(@class, 'alert-error')]
+
+*** Keywords ***
+Should Show Confirmation
+    Page Should Contain Element     ${CONFIRMATION}     Confirmation message not shown
+
+Should Show Error
+    Page Should Contain Element     ${ERROR}            Error message not shown

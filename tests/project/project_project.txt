@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation     Simple test for project/project page
-Resource          ../resource.txt
+Documentation     Test cases for project module
+Resource          ../../resource.txt
 
 *** Variables ***
 ${PROJECT URL}      http://${BASEURL}/project/project
@@ -10,4 +10,3 @@ ${PROJECT URL}      http://${BASEURL}/project/project
 Test Project List
     Go To    ${PROJECT URL}
     Table Should Contain    datatable   Water and Sanitation
-    

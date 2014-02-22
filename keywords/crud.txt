@@ -1,0 +1,9 @@
+*** Settings ***
+Documentation       Keywords for CRUD
+
+*** Variables ***
+${SubmitButton}     xpath=//tr[@id='submit_record__row']//input[@class='btn' and @type='submit']
+
+*** Keywords ***
+Submit CRUD Form
+    Click Button    ${SubmitButton}

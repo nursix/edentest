@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation     Test cases for org module
+Resource          ../../resource.txt
+
+*** Variables ***
+${ORGANIZATION URL}     http://${BASEURL}/org/organisation
+
+${ORG TEXTFILTER}       organisation-org_organisation_name-org_organisation_acronym-org_organisation_comments-text-filter
+
+*** Test Cases ***
+
+Create Organisation
+    Go To    ${ORGANIZATION URL}/create
+    Input Text      org_organisation_name       New Organization
+    Input Text      org_organisation_acronym    NO
+    Submit CRUD Form
+    Should Show Confirmation
+
+Find Organization
+    Go To   ${ORGANIZATION URL}
+    Input Text      ${ORG TEXTFILTER}           New Org
+    Sleep   2s  Wait for filter result
+    Xpath Should Match X Times  //td[@class='actions']   1
+    Table Should Contain    New Organization
