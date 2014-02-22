@@ -1,0 +1,15 @@
+*** Settings ***
+Documentation     Simple test for project/project page
+Resource          resource.txt
+
+*** Variables ***
+${PROJECT URL}      http://${BASEURL}/project/project
+
+*** Test Cases ***
+
+Test Project List
+    Login To Eden
+    Go To    ${PROJECT URL}
+    Table Should Contain    datatable   Water and Sanitation
+    [Teardown]    Close Browser
+    

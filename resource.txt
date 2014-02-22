@@ -1,0 +1,45 @@
+*** Settings ***
+Documentation     Resource file for Eden Tests
+Library           Selenium2Library
+Variables         config.py
+
+*** Variables ***
+${DELAY}            0
+${BASEURL}          ${SERVER}/${APPNAME}
+${LOGIN URL}        http://${BASEURL}/default/user/login
+${WELCOME URL}      http://${BASEURL}/default/index
+
+*** Keywords ***
+Open Browser To Login Page
+    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Login Page Should Be Open
+
+Login Page Should Be Open
+    Title Should Be    Login
+
+Go To Login Page
+    Go To    ${LOGIN URL}
+    Login Page Should Be Open
+
+Input Username
+    [Arguments]    ${username}
+    Input Text    auth_user_email    ${username}
+
+Input Password
+    [Arguments]    ${password}
+    Input Text    auth_user_password    ${password}
+
+Submit Credentials
+    Click Button    xpath=//input[@class='btn' and @value='Login']
+
+Welcome Page Should Be Open
+    Location Should Contain    ${WELCOME URL}
+
+Login To Eden
+    Open Browser To Login Page
+    Input Username    ${VALID USER}
+    Input Password    ${VALID PASSWORD}
+    Submit Credentials
+    Welcome Page Should Be Open
