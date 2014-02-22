@@ -21,4 +21,4 @@ Find Organization
     Input Text      ${ORG TEXTFILTER}           New Org
     Sleep   2s  Wait for filter result
     Xpath Should Match X Times  //td[@class='actions']   1
-    Table Should Contain    New Organization
+    Table Should Contain    datatable   New Organization
