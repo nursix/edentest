@@ -1,0 +1,9 @@
+*** Settings ***
+Documentation       Keywords for filter forms
+
+*** Variables ***
+
+*** Keywords ***
+Wait For Filter Result
+    [Documentation]  Waits for the filter result to be returned from the Ajax call
+    Sleep  3s  Wait for filter result

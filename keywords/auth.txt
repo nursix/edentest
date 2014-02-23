@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation       Keywords for authorization
+Documentation       Keywords for authorization, usually automatically
+...                 run during suite setup and tear down
 
 *** Variables ***
 ${LOGIN URL}        http://${BASEURL}/default/user/login
@@ -9,38 +10,20 @@ ${PasswordField}    auth_user_password
 
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
+    [Documentation]  Opens the specified browser at the login page
+    Open Browser  ${LOGIN URL}  ${BROWSER}
     Maximize Browser Window
-    Login Page Should Be Open
+    Title Should Be  Login
 
-Login Page Should Be Open
-    Title Should Be    Login
-
-Go To Login Page
-    Go To    ${LOGIN URL}
-    Login Page Should Be Open
-
-Input Username
-    [Arguments]     ${username}
-    Input Text      ${UsernameField}    ${username}
-
-Input Password
-    [Arguments]     ${password}
-    Input Text      ${PasswordField}    ${password}
-
-Submit Credentials
-    Click Button    xpath=//input[@class='btn' and @value='Login']
-
-Welcome Page Should Be Open
-    Location Should Contain    ${HOMEPAGE}
-    
 Login To Eden
+    [Documentation]  Open the browser and login to Eden with
+    ...              the configured username and password.
     Open Browser To Login Page
-    Input Username    ${VALID USER}
-    Input Password    ${VALID PASSWORD}
-    Submit Credentials
-    Welcome Page Should Be Open
+    Input Text      ${UsernameField}    ${VALID USER}
+    Input Text      ${PasswordField}    ${VALID PASSWORD}
+    Click Button  xpath=//input[@class='btn' and @value='Login']
+    Location Should Contain  ${HOMEPAGE}
 
 Logout From Eden
-    Go To   ${LOGOUT URL}
-
+    [Documentation]  Logout from Eden
+    Go To  ${LOGOUT URL}
