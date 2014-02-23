@@ -1,6 +1,0 @@
-*** Settings ***
-Documentation   Test suites for organisations module
-Resource        ../../resource.txt
-Variables       variables.py
-Suite Setup     Start Testing
-Suite TearDown  End Testing
