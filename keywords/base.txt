@@ -2,12 +2,14 @@
 Documentation       Global keywords for Eden tests
 
 *** Variables ***
-${CONFIRMATION}     xpath=//div[contains(@class, 'alert-success')]
-${ERROR}            xpath=//div[contains(@class, 'alert-error')]
+${CONFIRMATION}     jquery=div.alert-success
+${ERROR}            jquery=div.alert-error
 
 *** Keywords ***
 Should Show Confirmation
-    Page Should Contain Element     ${CONFIRMATION}     Confirmation message not shown
+    [Documentation]  Fails if no confirmation message is visible in the page
+    Page Should Contain Element  ${CONFIRMATION}  Confirmation message not shown
 
 Should Show Error
-    Page Should Contain Element     ${ERROR}            Error message not shown
+    [Documentation]  Fails if no error message is visible in the page
+    Page Should Contain Element  ${ERROR}  Error message not shown

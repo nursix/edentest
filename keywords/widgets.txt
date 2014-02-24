@@ -1,0 +1,6 @@
+*** Settings ***
+Documentation       Keywords for UI widgets
+
+*** Variables ***
+
+*** Keywords ***

@@ -5,6 +5,9 @@ Variables         config.py
 Resource          keywords/auth.txt
 Resource          keywords/base.txt
 Resource          keywords/crud.txt
+Resource          keywords/filter.txt
+Resource          keywords/datatable.txt
+Resource          keywords/widgets.txt
 
 *** Variables ***
 ${DELAY}            0
