@@ -37,4 +37,5 @@ Get DataTable Column By Label
     [Arguments]  ${label}
     ${column}=  Execute JavaScript  return $('#${DataTableID} th[role="columnheader"]').filter(function(){
                 ...                 return $(this).text() === '${label}';}).index()+1;
+    Should Be True  ${column} > ${0}  Column not found in datatable: "${label}"
     [Return]  ${column}
