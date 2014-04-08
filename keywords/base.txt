@@ -8,6 +8,7 @@ ${ERROR}            jquery=div.alert-error
 *** Keywords ***
 Should Show Confirmation
     [Documentation]  Fails if no confirmation message is visible in the page
+    Sleep  1s  Wait for message to render
     Page Should Contain Element  ${CONFIRMATION}  Confirmation message not shown
 
 Should Show Error
