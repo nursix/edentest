@@ -24,7 +24,6 @@ Start Browser With Proxy
 Start Browser
     Create Webdriver  ${BROWSER}
 
-
 Start Testing
     Run Keyword If  "${HTTP_PROXY}" != "" and "${BROWSER}" == "Firefox"  Start Browser With Proxy
     ...  ELSE  Start Browser
